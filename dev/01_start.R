@@ -15,12 +15,12 @@
 ## Add meta data about your application
 golem::fill_desc(
   pkg_name = "buildaflame", # The Name of the package containing the App 
-  pkg_title = "PKG_TITLE", # The Title of the package containing the App 
-  pkg_description = "PKG_DESC.", # The Description of the package containing the App 
-  author_first_name = "AUTHOR_FIRST", # Your First Name
-  author_last_name = "AUTHOR_LAST", # Your Last Name
-  author_email = "AUTHOR@MAIL.COM", # Your Email
-  repo_url = NULL # The URL of the GitHub Repo (optional) 
+  pkg_title = "Build A Flame on Shiny", # The Title of the package containing the App 
+  pkg_description = "This app supports the data that drives the Build A Flame blog!", # The Description of the package containing the App 
+  author_first_name = "Eugene", # Your First Name
+  author_last_name = "Geis", # Your Last Name
+  author_email = "eugene.quickreaction@gmail.com", # Your Email
+  repo_url = "https://github.com/genobobeno/buildaflame" # The URL of the GitHub Repo (optional) 
 )     
 
 ## Set {golem} options ----

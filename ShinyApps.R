@@ -6,4 +6,11 @@ library(rsconnect)
 rsconnect::deployApp('path/to/your/app')
 
 install.packages(c("shinydashboard","golem"),dependencies = TRUE)
-install.packages("devtools",dependencies = T)
+install.packages("googlesheets4",dependencies = T)
+install.packages("gargle",dependencies = T)
+
+googledrive::buildaflame/surveyresults
+
+survey<-googlesheets4::read_sheet("1-4kwf6x4-zJC7JOKly-Wp4VZ47arooxO87PUTlOgI6I")
+
+colnames(c("username","timestamp","topiccategory","topic","comment"))
