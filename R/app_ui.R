@@ -9,8 +9,13 @@ app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # List the first level UI elements here 
-    fluidPage(
-      h1("buildaflame")
+    shinydashboard::dashboardPage(
+      shinydashboard::dashboardHeader(title = "Build A Flame"),
+      shinydashboard::dashboardSidebar(
+        mod_SurveySB_ui("survey1")),
+      shinydashboard::dashboardBody(
+        mod_SurveyBD_ui("survey1")
+      )
     )
   )
 }

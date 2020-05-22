@@ -23,6 +23,7 @@ get_golem_config <- function(
   config = Sys.getenv("R_CONFIG_ACTIVE", "default"), 
   use_parent = TRUE
 ){
+  options(scipen=999,stringsAsFactors = FALSE)
   config::get(
     value = value, 
     config = config, 
