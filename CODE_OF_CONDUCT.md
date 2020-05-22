@@ -1,0 +1,3 @@
+## Code of Conduct
+  
+Please note that the buildaflame project is released with a simple CODE_OF_CONDUCT. By contributing or forking and using any portion of this project, you agree to abide by its terms. Specifically, you agree not to use any portion of this code without acknowledging the source. I am using the golem framework established by the thinkr community. And I think shinyapps and google for enabling the freeware that brought it to life.
