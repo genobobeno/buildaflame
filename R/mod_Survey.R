@@ -11,7 +11,7 @@ mod_SurveySB_ui <- function(id){
   ns <- NS(id)
   tagList(
     shinydashboard::sidebarMenu(id = "surveyMenu",
-                                shinydashboard::menuItem("Take the Survey!",icon = icon(name = "tasks"),selected = TRUE))
+                                shinydashboard::menuItem(text = "Take the Survey!",icon = icon(name = "tasks"),selected = TRUE))
   )
 }
 
@@ -20,11 +20,11 @@ mod_SurveyBD_ui <- function(id){
   tagList(
     shinydashboard::tabBox(title = "Tell Me About The Content You Want To See!",
                            # The id lets us use input$tabset1 on the server to find the current tab
-                           id = "surveyTabBox",width = 12,height = "250px",
-      tabPanel("Tab1", "Take My Survey",
+                           id = "surveyTabBox",width = 12,#height = "250px",
+      tabPanel("Tab1", title = "Take My Survey",
                radioButtons(ns("Q1"),label = "Pick The Topic That Interests You",
                             choices = list("AutoBio"=1,"Career"=2,"Code"=3,"Esoterics"=4,"Creativity"=5,"Fatherhood"=6,"Trading"=7)),
-               actionButton(ns("uploadData")),
+               actionButton(ns("uploadData"),label = "Submit Survey"),
                plotOutput(ns("barplot1"))),
       tabPanel("Tab2", "Tell Me Your Story",
                textInput(ns("userText"),label = "List some keywords about your topics:",value = "e.g. money, life, kids, trading",width = '100%'))
@@ -38,7 +38,7 @@ mod_SurveyBD_ui <- function(id){
 mod_Survey_server <- function(input, output, session, r){
   ns <- session$ns
 
-  r$surveyData<-read.csv("inst/surveyresults.csv",header = T)
+  r$surveyData<-read.csv(system.file("surveyresults.csv",package = "buildaflame"),header = T)
   
   output$barplot1<-renderPlot(
     barplot(table(r$surveyData$topiccategory),main="Category Preferences")

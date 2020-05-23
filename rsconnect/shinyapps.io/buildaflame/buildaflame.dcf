@@ -1,0 +1,10 @@
+name: buildaflame
+title:
+username:
+account: buildaflame
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2343472
+bundleId: 3179819
+url: https://buildaflame.shinyapps.io/buildaflame/
+when: 1590177112.16433
