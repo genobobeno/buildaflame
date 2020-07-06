@@ -44,7 +44,7 @@ mod_SurveyBD_ui <- function(id){
     ),
     conditionalPanel("input.surveyMenu=='results'",
                      plotOutput(ns("currentVotes")),
-                     uiOutput(ns("resultsLegend")))
+                     DT::dataTableOutput(ns("resultsLegend")))
   )   
 }
 
@@ -120,8 +120,13 @@ mod_Survey_server <- function(input, output, session, r){
     googlesheets4::sheet_append(data = Votes,ss="1-4kwf6x4-zJC7JOKly-Wp4VZ47arooxO87PUTlOgI6I",sheet = "Votes")
     fct_readVotes()
   })
+
+  observeEvent(input$uploadStory,{
+    Notes<-data.frame(User = input$noteEmail,Comment = input$userStory,Timestamp = Sys.time())
+    googlesheets4::write_sheet(data = Notes,ss="1-4kwf6x4-zJC7JOKly-Wp4VZ47arooxO87PUTlOgI6I",sheet = "Notes")
+  })
   
-  output$barplot1<-renderPlot({
+  output$currentVotes<-renderPlot({
     Results<-googlesheets4::read_sheet(ss = "1-4kwf6x4-zJC7JOKly-Wp4VZ47arooxO87PUTlOgI6I",sheet = "Topics")
     Results<-Results[Results$Votes>0]
     r$DataTable<-Results[order(-Results$Votes),c(1,2,3,4)]
@@ -129,7 +134,7 @@ mod_Survey_server <- function(input, output, session, r){
             ylab="Votes")
   })
   
-  output$table1<-DT::renderDataTable(r$DataTable)
+  output$resultsLegent<-DT::renderDataTable(r$DataTable)
   
   # output$LinkBox <- DT::renderDataTable({
   #   IE<-utils_createLink("https://ie.datamyx.com/","IntellidataExpress")
