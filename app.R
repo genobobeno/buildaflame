@@ -7,4 +7,3 @@ options( "golem.app.prod" = TRUE)
 buildaflame::run_app() # add parameters here (if any)
 
 rsconnect::deployApp()
-#   buildaflame@buildaflame.iam.gserviceaccount.com	            buildaflame

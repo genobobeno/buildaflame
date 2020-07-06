@@ -17,6 +17,10 @@
 ## Add one line by package you want to add as dependency
 usethis::use_package( "shinydashboard" )
 usethis::use_package( "DT" )
+usethis::use_package("stringdist")
+usethis::use_package("googlesheets4")
+usethis::use_package("googledrive")
+usethis::use_package("gargle")
 
 ## Add modules ----
 ## Create a module infrastructure in R/
@@ -25,8 +29,13 @@ golem::add_module( name = "SiteStats" ) # Name of the module
 
 ## Add helper functions ----
 ## Creates ftc_* and utils_*
-golem::add_fct( "helpers" ) 
-golem::add_utils( "helpers" )
+golem::add_fct( "newArticle" ) 
+golem::add_fct( "readCategories" ) 
+golem::add_fct( "readVotes" ) 
+golem::add_fct( "wroteArticle" ) 
+golem::add_fct( "aggregateVotes" ) 
+golem::add_utils( "queryUser" )
+golem::add_utils( "trim" )
 
 ## External resources
 ## Creates .js and .css files at inst/app/www

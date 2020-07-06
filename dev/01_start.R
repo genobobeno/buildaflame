@@ -16,7 +16,7 @@
 golem::fill_desc(
   pkg_name = "buildaflame", # The Name of the package containing the App 
   pkg_title = "Build A Flame on Shiny", # The Title of the package containing the App 
-  pkg_description = "This app supports the data that drives the Build A Flame blog!", # The Description of the package containing the App 
+  pkg_description = "This app supports the data that drives the Build A Flame content!", # The Description of the package containing the App 
   author_first_name = "Eugene", # Your First Name
   author_last_name = "Geis", # Your Last Name
   author_email = "eugene.quickreaction@gmail.com", # Your Email
