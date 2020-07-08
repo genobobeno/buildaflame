@@ -216,7 +216,7 @@ mod_Survey_server <- function(input, output, session, r){
   
   output$comment2<-renderUI({
     if (r$uploadStory==0) {
-      textInput(ns("userStory"),label = "Let me know what topics you're thinking about:",value = "e.g. money, life, kids, trading",width = '100%')
+      textInput(ns("userStory"),label = "Let me know what topics you're thinking about:",value = "e.g. life, education, stats, money",width = '100%')
     } else {
       NULL
     }
