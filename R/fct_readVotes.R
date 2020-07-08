@@ -5,15 +5,15 @@ fct_readVotes<-function() {
   # googlesheets4::write_sheet(data = Votes,ss="1-4kwf6x4-zJC7JOKly-Wp4VZ47arooxO87PUTlOgI6I",sheet = "Votes")
   Votes<-googlesheets4::read_sheet(ss = "1-4kwf6x4-zJC7JOKly-Wp4VZ47arooxO87PUTlOgI6I",sheet = "Votes")
   Votes$Voted<-1
-  AggVotes<-aggregate(Voted~Topic,data = Votes,sum)
-  Comments<-aggregate(Comment~Topic,data = Votes,paste,sep=" :: ")
+  AggVotes<-aggregate(Voted~Index,data = Votes,sum)
+  Comments<-aggregate(Comment~Index,data = Votes,paste,sep=" :: ")
   Topics<-googlesheets4::read_sheet(ss = "1-4kwf6x4-zJC7JOKly-Wp4VZ47arooxO87PUTlOgI6I",sheet = "Topics")
   Col.Names<-names(Topics)
   Topics$Votes<-NULL
-  Topics<-merge(Topics,AggVotes,by="Topic",all.x=TRUE)
+  Topics<-merge(Topics,AggVotes,by="Index",all.x=TRUE)
   names(Topics)[names(Topics)=="Voted"]<-"Votes"
   Topics$Votes<-ifelse(Topics$Votes>0,Topics$Votes,0)
   Topics<-Topics[,Col.Names]
   googlesheets4::write_sheet(data = Topics,ss="1-4kwf6x4-zJC7JOKly-Wp4VZ47arooxO87PUTlOgI6I",sheet = "Topics")
-  print(merge(AggVotes,Comments,by="Topic"))
+  print(merge(AggVotes,Comments,by="Index"))
 }
