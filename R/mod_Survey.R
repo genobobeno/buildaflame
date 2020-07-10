@@ -77,6 +77,8 @@ mod_Survey_server <- function(input, output, session, r){
   #   cache = gargle::gargle_oauth_cache(),
   #   use_oob = gargle::gargle_oob_default()
   # )
+  print(dir())
+  print(gargle::gargle_oauth_cache())
   
   json<-gargle:::secret_read("buildaflame","gargle-testing.json")
   # # gargle:::token_fetch(  path = rawToChar(json) )
